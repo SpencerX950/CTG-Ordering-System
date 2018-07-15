@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "970889326718",
+    "firebase_url": "https://orderingsystem-d3904.firebaseio.com",
+    "project_id": "orderingsystem-d3904",
+    "storage_bucket": "orderingsystem-d3904.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970889326718:android:4897713e71540d53",
+        "android_client_info": {
+          "package_name": "com.chookstogo.orderingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970889326718-1uob7pgmaqam7kdbvtoasj8kdfb250cs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chookstogo.orderingsystem",
+            "certificate_hash": "c88f21241356b016ab001244dbce977ffaa3c445"
+          }
+        },
+        {
+          "client_id": "970889326718-2f3ap2g95jdef28slier077985ainals.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaK1XmU4J_ZNxHbBlxOZEm-uzwIFUdt0g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970889326718-2f3ap2g95jdef28slier077985ainals.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

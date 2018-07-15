@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Chooks To Go - OS</string>
+    <string name="don_t_have_an_account_sign_up_now">Don\'t have an Account? Sign up now!</string>
+    <string name="sign_in">Sign in</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email Address</string>
+</resources>
