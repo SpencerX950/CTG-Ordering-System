@@ -13,7 +13,7 @@ import android.os.Bundle;
  *
  * 2.) After clicking Add product Button:
   * - the admin will be prompted using toast or what Sir Salacsacan does
- *  - admin will be destined back to the View Product Activity
+ *  - admin will be destined back to the View Product Activity rayvin reyes
  * */
 public class AddProducts extends AppCompatActivity {
 
