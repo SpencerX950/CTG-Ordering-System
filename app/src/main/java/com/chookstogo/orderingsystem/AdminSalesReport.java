@@ -12,11 +12,11 @@ import android.os.Bundle;
  * - BY MONTH
  * - BY YEAR
  * */
-public class SalesReport extends AppCompatActivity {
+public class AdminSalesReport extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sales_report);
+        setContentView(R.layout.activity_admin_sales_report);
     }
 }

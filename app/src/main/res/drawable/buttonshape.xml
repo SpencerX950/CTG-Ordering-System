@@ -18,6 +18,6 @@
         />
     <stroke
         android:width="3dp"
-        android:color="#FFFFF"
+        android:background="@color/colorButtonShape"
         />
 </shape>

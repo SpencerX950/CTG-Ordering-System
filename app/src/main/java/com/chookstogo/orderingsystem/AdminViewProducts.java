@@ -3,12 +3,12 @@ package com.chookstogo.orderingsystem;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ViewProducts extends AppCompatActivity {
+public class AdminViewProducts extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_products);
+        setContentView(R.layout.activity_admin_view_products);
 
         /*Procedure:
         *1.) View Products is only for the Admin

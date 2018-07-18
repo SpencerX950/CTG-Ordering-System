@@ -15,12 +15,12 @@ import android.os.Bundle;
   * - the admin will be prompted using toast or what Sir Salacsacan does
  *  - admin will be destined back to the View Product Activity rayvin reyes Leona Peralta
  * */
-public class AddProducts extends AppCompatActivity {
+public class AdminAddProducts extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_products);
+        setContentView(R.layout.activity_admin_add_products);
     }
 
 

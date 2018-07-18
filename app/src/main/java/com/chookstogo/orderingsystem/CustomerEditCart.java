@@ -13,11 +13,11 @@ import android.os.Bundle;
  * - SAVE BUTTON
  * - CANCEL BUTTON
  * */
-public class EditCart extends AppCompatActivity {
+public class CustomerEditCart extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_cart);
+        setContentView(R.layout.activity_customer_edit_cart);
     }
 }

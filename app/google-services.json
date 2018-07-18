@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "970889326718-egtk1t6bjcnoo08gnbo5s4flhnhdvalh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chookstogo.orderingsystem",
+            "certificate_hash": "79029126fed3941afde351c7e25d73e8ce06e540"
+          }
+        },
+        {
           "client_id": "970889326718-2f3ap2g95jdef28slier077985ainals.apps.googleusercontent.com",
           "client_type": 3
         }

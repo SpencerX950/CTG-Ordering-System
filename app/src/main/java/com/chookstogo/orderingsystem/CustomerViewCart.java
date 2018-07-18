@@ -10,11 +10,11 @@ import android.os.Bundle;
  * 2.) TO EDIT CUSTOMER'S CART USE:
  * - INTENT CONTROL TO TRANSFER ITEM DATA TO EDITCART ACTIVITY
  * */
-public class ViewCart extends AppCompatActivity {
+public class CustomerViewCart extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_cart);
+        setContentView(R.layout.activity_customer_view_cart);
     }
 }

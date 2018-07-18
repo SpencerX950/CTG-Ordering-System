@@ -21,7 +21,7 @@ import android.os.Bundle;
  *      - FOLLOWED BY PROMPT FOR SUCCESS
  *      - HEAD BACK TO __________ ACTIVITY
  * */
-public class UserReport extends AppCompatActivity {
+public class AdminUserReport extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
