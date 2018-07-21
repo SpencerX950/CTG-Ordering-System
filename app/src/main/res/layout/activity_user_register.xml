@@ -23,9 +23,12 @@
 
     <Button
         android:id="@+id/btnRegister"
+        android:textColor="#FFFFFF"     
         android:layout_width="249dp"
+        android:background="@drawable/buttonshape"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/sign_up"
