@@ -3,15 +3,18 @@ package com.chookstogo.orderingsystem;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.HashMap;
 
 public class AdminPanel extends AppCompatActivity {
 
     TextView lblWelcomeAdmin;
     Button btnView,btnAdd,btnEdit,btnDelete,btnBack;
-
+    HashMap<String,String> UserMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +26,9 @@ public class AdminPanel extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnBack = findViewById(R.id.btnBack);
         lblWelcomeAdmin = findViewById(R.id.lblWelcomeAdmin);
-        //
+
         setButtonListeners();
+        setWelcomeBanner();
     }
 
     class AdminProcessListener implements View.OnClickListener
@@ -79,5 +83,16 @@ public class AdminPanel extends AppCompatActivity {
         Intent intent = new Intent(AdminPanel.this,AdminDeleteProduct.class);
         startActivity(intent);
         finish();
+    }
+
+    public void setWelcomeBanner()
+    {
+        Intent intent = getIntent();
+        UserMap = (HashMap<String,String>) intent.getSerializableExtra("User Map");
+        Log.d("User Map in Admin Panel", String.valueOf(UserMap));
+        if(!UserMap.get("Fname").isEmpty())
+            lblWelcomeAdmin.setText("Hello," + String.valueOf(UserMap.get("Fname")));
+        else
+            lblWelcomeAdmin.setText("Hello,Admin");
     }
 }

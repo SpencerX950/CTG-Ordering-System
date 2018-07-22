@@ -4,7 +4,7 @@
         android:radius="14dp"
         />
     <solid
-        android:color="@color/BLACK"
+        android:color="@color/colorButtonShapeBlack"
         />
     <padding
         android:left="0dp"

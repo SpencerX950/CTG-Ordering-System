@@ -1,27 +1,48 @@
 <resources>
-    <string name="app_name">Chooks To Go - OS</string>
+    <string name="app_name">Chooks To Go Ordering System</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="sign_in">Sign in</string>
-    <string name="don_t_have_an_account_sign_up_now"></string>
-    <string name="save">Save</string>
-    <string name="cancel">Cancel</string>
-    <string name="profile">Profile</string>
-    <string name="change_password">Change Password</string>
-    <string name="first_name">First Name</string>
-    <string name="username">Username</string>
-    <string name="personal_information">Personal Information</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="mobile">Mobile</string>
-    <string name="last_name">Last Name</string>
     <string name="login">Login</string>
-    <string name="welcome_admin">Welcome, Admin</string>
-    <string name="sign_up">Sign Up!</string>
-    <string name="hello_admin">Hello, Admin</string>
-    <string name="view_items">View Items</string>
-    <string name="add_item">Add Item</string>
-    <string name="edit_item">Edit Item</string>
-    <string name="delete_item">Delete Item</string>
-    <string name="back">Back</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t Have an Account? Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="Register">Sign Up</string>
+    <string name="already_have_an_account_sign_in">Already Have an Account? Sign In</string>
+
+    <string name="ProductDetails">Product Details</string>
+    <string name="ProductName">ProductName</string>
+    <string name="ProductCategory">Product Category</string>
+    <string name="ProductPrice">Product Price</string>
+    <string name="ProductDescription">Product Description</string>
+    <string name="ChooseFile">Choose Image File</string>
+    <string name="ProductImage">Product Image</string>
+    <string name="ProductStatus">Product Status</string>
+
+    <string name="WelcomeBanner">Hello Admin</string>
+
+    <string name="SaveChange">Save</string>
+    <string name="CancelChange">Cancel</string>
+    <string name="DeleteProduct">Delete</string>
+    <string name="SearchProduct">Search</string>
+    <string name="ViewItems">View Items</string>
+    <string name="AddItem">Add Item</string>
+    <string name="EditItem">Edit Item</string>
+    <string name="DeleteItem">Delete Item</string>
+
+    <string name="Information">User Information</string>
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="mobile">Mobile</string>
+    <string name="username">Username</string>
+    <string name="ChangeProfileImage">Change Profile Image</string>
+    <string name="ProfilePic">Profile Picture</string>
+    <string name="Edit">Edit</string>
+    <string name="Back">Back</string>
+
+    <string name="Purchase">Purchase</string>
+    <string name="Cart">Cart</string>
+    <string name="ViewTransactions">View Transactions</string>
+    <string name="ViewProfile">View Profile</string>
+
+    <string name="Signout">Sign out</string>
 
 </resources>

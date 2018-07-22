@@ -3,64 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminPanel"
+    tools:context=".CustomerPanel"
     android:background="@drawable/background2">
 
     <TextView
-        android:id="@+id/lblWelcomeAdmin"
+        android:id="@+id/lblWelcomeCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="39dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="103dp"
         android:text="@string/WelcomeBanner"
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/btnView"
+        android:id="@+id/btnPurchase"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnCart"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="131dp"
-        android:text="@string/ViewItems" />
+        android:text="@string/Purchase" />
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnCart"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnTransaction"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="192dp"
-        android:text="@string/AddItem" />
+        android:text="@string/Cart" />
 
     <Button
-        android:id="@+id/btnEdit"
+        android:id="@+id/btnTransaction"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btnProfile"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="207dp"
-        android:text="@string/EditItem" />
+        android:text="@string/ViewTransactions" />
 
     <Button
-        android:id="@+id/btnDelete"
+        android:id="@+id/btnProfile"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="141dp"
-        android:text="@string/DeleteItem" />
+        android:layout_marginBottom="120dp"
+        android:text="@string/ViewProfile" />
 
     <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSignout"
+        android:layout_width="104dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="14dp"
-        android:layout_marginStart="31dp"
-        android:text="@string/CancelChange" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:text="@string/Signout" />
 
 </RelativeLayout>
