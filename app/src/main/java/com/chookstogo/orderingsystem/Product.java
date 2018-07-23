@@ -82,5 +82,4 @@ public class Product {
         itemList.put("Status",getStatus());
         return itemList;
     }
-
 }

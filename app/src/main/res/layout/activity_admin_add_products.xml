@@ -7,24 +7,6 @@
     tools:context=".AdminAddProducts">
 
     <EditText
-        android:id="@+id/txtPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:layout_alignEnd="@+id/spinCategory"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="@string/ProductPrice"
-        android:inputType="textPersonName"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintBottom_toTopOf="@+id/txtDescription"
-        app:layout_constraintEnd_toStartOf="@+id/btnChooseFile"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
         android:id="@+id/txtName"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
@@ -41,6 +23,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.914" />
+
+    <EditText
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_alignEnd="@+id/spinCategory"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="@string/ProductPrice"
+        android:inputType="textPersonName"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintBottom_toTopOf="@+id/txtDescription"
+        app:layout_constraintEnd_toStartOf="@+id/btnChooseFile"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spinCategory"

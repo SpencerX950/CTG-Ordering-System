@@ -3,11 +3,11 @@ package com.chookstogo.orderingsystem;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AdminProfile extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_profile);
+        setContentView(R.layout.activity_splash_screen);
     }
 }
