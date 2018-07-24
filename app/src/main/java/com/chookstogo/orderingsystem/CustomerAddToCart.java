@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import android.support.v7.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
 
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -44,11 +47,11 @@ public class CustomerAddToCart extends AppCompatActivity implements View.OnClick
     ListView ProductView;
     ArrayList<String> ProductList = new ArrayList<>(); // List of Product Name that will be populated in listview
     ArrayList<HashMap<String,String>> ProductMap = new ArrayList<>(); //All Product List
-    ArrayList<HashMap<String,String>> SelectedItems = new ArrayList<>(); // List of selected items only, ProductName,Qty
+    ArrayList<HashMap<String,String>> SelectedItems = new ArrayList<>(); // List of selected items only, ProductId,ProductName,Qty
     ImageView imgProduct;
     TextView lblProductName,lblPrice,lblDescription,lblSubtotal,lblGrandTotal;
     EditText txtQty;
-    Button btnAdd;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,43 +73,23 @@ public class CustomerAddToCart extends AppCompatActivity implements View.OnClick
         ProductView.setOnItemClickListener(this);
         //Set Listeners for each button in this activity
         setButtonListeners();
-        //Preload Disable EditText Quantity
-        preload();
-    }
-
-    private void preload()
-    {
-        txtQty.setEnabled(false);
-        txtQty.setText(String.valueOf(1));
-    }
-
-    private void newLoad()
-    {
-        txtQty.setEnabled(true);
-        txtQty.setText(String.valueOf(1));
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String selectedItem = ((TextView) view).getText().toString();
-        if(SelectedItems.contains(selectedItem))
+        if(SelectedItems.get(position).get("Name").contains(selectedItem))
         {
             SelectedItems.remove(selectedItem); //This will "Uncheck" the item
             Log.d("Selected Item List:",String.valueOf(SelectedItems));
-            preload();
         }
         else
         {
-            HashMap<String,String> ItemSelectedMap = new HashMap<>();
-            ItemSelectedMap.put("Name",String.valueOf(ProductMap.get(position).get("Name")));
-            ItemSelectedMap.put("Qty",String.valueOf(txtQty.getText()));
-            SelectedItems.add(ItemSelectedMap);
-
             lblProductName.setText(String.valueOf(ProductMap.get(position).get("Name")));
             lblPrice.setText(String.valueOf(ProductMap.get(position).get("Price")));
             lblDescription.setText(String.valueOf(ProductMap.get(position).get("Description")));
-
             storageRef = FirebaseStorage.getInstance().getReference("ProductUploads");
+            
             final StorageReference dataRef = storageRef.child(String.valueOf(ProductMap.get(position).get("Image")));
             dataRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
@@ -114,15 +97,74 @@ public class CustomerAddToCart extends AppCompatActivity implements View.OnClick
                     Picasso.get().load(uri).into(imgProduct); // Using Picasso to adjust picture
                 }
             });
-            newLoad();
+            
+            showDialog(ProductMap.get(position).get("Name"),"Add Quantity");
         }
     }
+    
+    protected void showDialog(final String ProductName, final String message){
 
+        LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.updatedialogitem,null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setView(promptView);
+        builder.setTitle(message);
+
+        final EditText txtQty = (EditText) promptView.findViewById(R.id.txtQty);
+
+        builder.setCancelable(false).setPositiveButton("Add To Cart", new DialogInterface.OnClickListener() {
+          @Override
+          public void onClick(DialogInterface dialogInterface, int i) {
+                //Check if EditText is null -> showDialog again
+                //Check if EditText is not null -> add productid, productname and quantity to the arraylist<HashMap<String,String>>
+
+                if(txtQty.isEmpty() || Integer.parseInt(txtQty.getText().toString()) < 1 )
+                    showDialog(ProductName,"Please Enter Valid Quantity Number");
+                
+            HashMap<String,String> ItemSelectedMap = new HashMap<>();
+            //ItemSelectedMap.put("ID",String.valueOf(ProductMap.get(position).get("Name")));    
+            ItemSelectedMap.put("Name",String.valueOf(ProductMap.get(position).get("Name")));
+            ItemSelectedMap.put("Qty",String.valueOf(txtQty.getText()));
+            SelectedItems.add(ItemSelectedMap);
+          }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Uncheck the checkbox
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    
+     // Creating Alert dialog for confirmation on back press //
+    @Override
+    public void onBackPressed(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm");
+        builder.setMessage("Are you sure to go back?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity.super.onBackPressed();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.show();
+    }
+    
     @Override
     public void onClick(View v) {
         switch(v.getId())
         {
-            case R.id.btnAdd: AddToCart(); break;
             case R.id.btnCheckout: Checkout(); break;
             case R.id.btnBack: Back(); break;
         }
@@ -161,14 +203,10 @@ public class CustomerAddToCart extends AppCompatActivity implements View.OnClick
         });
     }
 
-    private void AddToCart()
-    {
-
-    }
-
     private void Checkout()
     {
         Intent intent = new Intent(CustomerAddToCart.this,CustomerViewCart.class);
+        intent.putExtra("Cart Map",SelectedItems);
         startActivity(intent);
         finish();
     }
