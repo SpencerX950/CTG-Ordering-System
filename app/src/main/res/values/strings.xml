@@ -11,7 +11,7 @@
     <string name="ProductDetails">Product Details</string>
     <string name="ProductName">ProductName</string>
     <string name="ProductCategory">Product Category</string>
-    <string name="ProductPrice">Product Price</string>
+    <string name="ProductPrice">Price</string>
     <string name="ProductDescription">Product Description</string>
     <string name="ChooseFile">Choose Image File</string>
     <string name="ProductImage">Product Image</string>
@@ -27,6 +27,9 @@
     <string name="AddItem">Add Item</string>
     <string name="EditItem">Edit Item</string>
     <string name="DeleteItem">Delete Item</string>
+    <string name="Checkout">Checkout</string>
+    <string name="Subtotal">Subtotal</string>
+    <string name="GrandTotal">Grand Total</string>
 
     <string name="Information">User Information</string>
     <string name="fname">First Name</string>
@@ -44,5 +47,7 @@
     <string name="ViewProfile">View Profile</string>
 
     <string name="Signout">Sign out</string>
+    <string name="PricePerProduct">Price</string>
+    <string name="qty">Qty</string>
 
 </resources>

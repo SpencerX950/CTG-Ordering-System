@@ -3,15 +3,14 @@
     package="com.chookstogo.orderingsystem">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".UserLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,23 +18,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".UserRegister" />
         <activity android:name=".AdminViewProducts" />
-        <activity android:name=".AdminAddProducts">
-        </activity>
+        <activity android:name=".AdminAddProducts" />
         <activity android:name=".AdminEditProducts" />
         <activity android:name=".AdminSalesReport" />
         <activity android:name=".AdminUserReport" />
         <activity android:name=".AdminOrderHistoryReport" />
-        <activity android:name=".CustomerOrder" />
         <activity android:name=".CustomerOrderHistory" />
         <activity android:name=".CustomerPanel" />
         <activity android:name=".CustomerViewCart" />
         <activity android:name=".AdminPanel" />
         <activity android:name=".CustomerProfile" />
-        <activity android:name=".AdminProfile" />
-        <activity android:name=".AdminDeleteProduct"/>
+        <activity android:name=".AdminDeleteProduct" />
+        <activity android:name=".SplashScreen" />
+        <activity android:name=".CustomerAddToCart"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
     </application>
 
 </manifest>

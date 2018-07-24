@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+//https://www.youtube.com/watch?v=K7_CX3zkJTM
 public class UserLogin extends AppCompatActivity implements View.OnClickListener{
     User user = new User();
     private FirebaseAuth mAuth;
@@ -92,14 +92,20 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         user.setPass(txtPassword.getText().toString());
         user.setID(UserID);
 
-        dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(UserID).child("Roles");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("User");
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot data: dataSnapshot.getChildren())
                 {
-                    Log.d(" User Type >>", String.valueOf(data.getValue()));
-                    user.setType(String.valueOf(data.getValue()));
+                    if(String.valueOf(data.getKey()).equals(UserID))
+                    {
+                        user.setFname(String.valueOf(data.child("Fname").getValue()));
+                        user.setLname(String.valueOf(data.child("Lname").getValue()));
+                        user.setMobile(String.valueOf(data.child("Mobile").getValue()));
+                        user.setType(String.valueOf(data.child("Type").getValue()));
+                        user.setUsername(String.valueOf(data.child("Username").getValue()));
+                    }
                 }
 
                 Log.d("User HashMap >>", String.valueOf(user.getUserMap()));

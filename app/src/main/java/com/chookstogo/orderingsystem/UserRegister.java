@@ -121,7 +121,7 @@ public class UserRegister extends AppCompatActivity implements View.OnClickListe
     private void SetupUserCredentials(String UserID)
     {
         dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(String.valueOf(UserID));
-        dbRef.child("Roles").child("Type").setValue("Customer");
+        dbRef.child("Type").setValue("Customer");
 
         GoToLoginActivity();
     }

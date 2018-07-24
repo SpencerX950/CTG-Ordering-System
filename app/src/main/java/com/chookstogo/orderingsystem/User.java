@@ -105,7 +105,7 @@ public class User {
         UserMap.put("Email",Email);
         UserMap.put("Username",Username);
         UserMap.put("Password",Pass);
-        UserMap.put("UserType",Type);
+        UserMap.put("Type",Type);
         return UserMap;
     }
 

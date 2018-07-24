@@ -70,9 +70,6 @@ public class AdminAddProducts extends AppCompatActivity {
         imgItem = findViewById(R.id.imgItem);
         prgbarImage = findViewById(R.id.prgbarImage);
         progbarProduct = findViewById(R.id.progbarProduct);
-        //
-        dbRef = FirebaseDatabase.getInstance().getReference("Product");
-        storageRef = FirebaseStorage.getInstance().getReference("ProductUploads");
 
         //Array Adapter to fill spinner with category array
         ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(AdminAddProducts.this,R.layout.support_simple_spinner_dropdown_item,category);
@@ -146,28 +143,28 @@ public class AdminAddProducts extends AppCompatActivity {
        product.setImage(System.currentTimeMillis() + "." + getFileExtension(imgUri));
 
        Log.d("Item Map >>", String.valueOf(product.getItemMap()));
-//
-//        dbRef = FirebaseDatabase.getInstance().getReference().child("Product");
-//        dbRef.push().setValue(product.getItemMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if(task.isSuccessful())
-//                {
-//                    progbarProduct.setVisibility(View.GONE);
-//                    Toast.makeText(AdminAddProducts.this, "Upload Product on Database Success!\n Please wait for the image to upload", Toast.LENGTH_SHORT).show();
-////                    if(imgUri != null)
-////                         UploadFile();
-////                    else
-////                        Toast.makeText(AdminAddProducts.this,"No Files Selected\nPlease proceed to Edit Products to Add Image",Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                progbarProduct.setVisibility(View.GONE);
-//                Toast.makeText(AdminAddProducts.this, String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Product");
+        dbRef.push().setValue(product.getItemMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful())
+                {
+                    progbarProduct.setVisibility(View.GONE);
+                    Toast.makeText(AdminAddProducts.this, "Upload Product on Database Success!\n Please wait for the image to upload", Toast.LENGTH_SHORT).show();
+                    if(imgUri != null)
+                         UploadFile();
+                    else
+                        Toast.makeText(AdminAddProducts.this,"No Files Selected\nPlease proceed to Edit Products to Add Image",Toast.LENGTH_LONG).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progbarProduct.setVisibility(View.GONE);
+                Toast.makeText(AdminAddProducts.this, String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void MissingFields(EditText field)
@@ -194,6 +191,7 @@ public class AdminAddProducts extends AppCompatActivity {
 
     public void UploadFile()
     {
+        storageRef = FirebaseStorage.getInstance().getReference("ProductUploads");
         StorageReference fileRef = storageRef.child(product.getImage());
         fileRef.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -205,6 +203,7 @@ public class AdminAddProducts extends AppCompatActivity {
                         prgbarImage.setProgress(0);
                     }
                 }, 5000);
+                Toast.makeText(AdminAddProducts.this, "Product Image Successfully Uploaded!\n You can check the added product at Admin Panel", Toast.LENGTH_LONG).show();
             }
             }).addOnFailureListener(new OnFailureListener() {
                     @Override
