@@ -9,69 +9,65 @@
 
     <Button
         android:id="@+id/btnCheckout"
-        android:layout_width="110dp"
+        android:layout_width="157dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/buttonshape"
+        android:background="@android:color/holo_green_dark"
         android:text="@string/Checkout"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintTop_toBottomOf="@+id/listProducts"
         app:layout_constraintVertical_bias="0.679"
         tools:ignore="UnknownId" />
 
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
+        android:layout_width="157dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
         android:text="@string/Back"
-        app:layout_constraintBottom_toTopOf="@+id/ProductView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCheckout"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProduct"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/lblPrice"
-        android:layout_width="56dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="196dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/ProductPrice"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtQty"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toEndOf="@+id/imgProduct"
         app:layout_constraintTop_toBottomOf="@+id/lblDescription"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/lblProductName"
-        android:layout_width="89dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="52dp"
         android:text="@string/ProductName"
         app:layout_constraintBottom_toTopOf="@+id/lblDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgProduct"
-        app:layout_constraintTop_toBottomOf="@+id/ProductView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/imgProduct" />
 
     <ListView
         android:id="@+id/ProductView"
@@ -79,7 +75,7 @@
         android:layout_height="130dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -88,7 +84,7 @@
         android:id="@+id/lblDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
+        android:layout_marginBottom="204dp"
         android:layout_marginEnd="128dp"
         android:text="@string/ProductDescription"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,59 +108,30 @@
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/GrandTotal"
-        app:layout_constraintBottom_toTopOf="@+id/btnCheckout"
-        app:layout_constraintEnd_toStartOf="@+id/lblGrandtotal"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProductView"
-        app:layout_constraintVertical_bias="0.021" />
-
-    <TextView
         android:id="@+id/lblGrandtotal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="17dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginStart="8dp"
         android:text="@string/GrandTotal"
         app:layout_constraintBottom_toTopOf="@+id/btnCheckout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProductView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/txtQty"
-        android:layout_width="41dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/qty"
-        android:inputType="textPersonName|number"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lblSubtotal"
-        app:layout_constraintTop_toBottomOf="@+id/lblDescription"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/lblSubtotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="112dp"
         android:text="@string/Subtotal"
-        app:layout_constraintBottom_toTopOf="@+id/btnCheckout"
+        app:layout_constraintBottom_toTopOf="@+id/lblGrandtotal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblGrandtotal"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"
+        app:layout_constraintTop_toBottomOf="@+id/ProductView" />
 </android.support.constraint.ConstraintLayout>

@@ -141,8 +141,10 @@ public class AdminAddProducts extends AppCompatActivity {
        product.setCategory(((Spinner) findViewById(R.id.spinCategory)).getSelectedItem().toString());
        product.setStatus(((Spinner) findViewById(R.id.spinStatus)).getSelectedItem().toString());
        product.setImage(System.currentTimeMillis() + "." + getFileExtension(imgUri));
+       product.setUnitSold(String.valueOf(0));
 
-       Log.d("Item Map >>", String.valueOf(product.getItemMap()));
+
+        Log.d("Item Map >>", String.valueOf(product.getItemMap()));
 
         dbRef = FirebaseDatabase.getInstance().getReference().child("Product");
         dbRef.push().setValue(product.getItemMap()).addOnCompleteListener(new OnCompleteListener<Void>() {

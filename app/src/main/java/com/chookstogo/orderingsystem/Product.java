@@ -5,22 +5,25 @@ import android.net.Uri;
 import java.util.HashMap;
 
 public class Product {
+    private String ID;
     private String Name;
     private String Price;
     private String Category;
     private String Description;
     private String Image;
     private String Status;
-
+    private String UnitSold;
 
     public Product()
     {
-        setName(null);
-        setCategory(null);
-        setPrice(null);
-        setDescription(null);
-        setImage(null);
-        setStatus(null);
+        setID("");
+        setName("");
+        setCategory("");
+        setPrice("");
+        setDescription("");
+        setImage("");
+        setStatus("");
+        setUnitSold("");
     }
 
     public String getName() {
@@ -71,6 +74,22 @@ public class Product {
         Status = status;
     }
 
+    public String getUnitSold() {
+        return UnitSold;
+    }
+
+    public void setUnitSold(String unitSold) {
+        UnitSold = unitSold;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     public HashMap<String,String> getItemMap()
     {
         HashMap<String,String> itemList = new HashMap<>();
@@ -80,6 +99,8 @@ public class Product {
         itemList.put("Description",getDescription());
         itemList.put("Image",getImage());
         itemList.put("Status",getStatus());
+        itemList.put("UnitSold",getUnitSold());
         return itemList;
     }
+
 }
