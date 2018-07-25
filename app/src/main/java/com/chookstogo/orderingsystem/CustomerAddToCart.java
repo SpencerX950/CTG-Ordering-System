@@ -277,6 +277,40 @@ public class CustomerAddToCart extends AppCompatActivity implements View.OnClick
                 Toast.makeText(CustomerAddToCart.this, String.valueOf(e.getMessage()), Toast.LENGTH_LONG).show();
             }
         });
+
+        //CartList has Qty
+        //Check the name first from CartList to Product
+        // if yes, change their unitsold
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Product");
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(Cart cart : CartList)
+                {
+                    for(DataSnapshot data: dataSnapshot.getChildren())
+                    {
+                            if(cart.getName().equals(String.valueOf(data.child("Name").getValue())))
+                            {
+                                Log.d("Product Id >>", String.valueOf(data.getKey()));
+                                Log.d("Debug >>", cart.getName() + " is equal" + String.valueOf(data.child("Name").getValue()));
+                                Log.d("Unit Sold >>", String.valueOf(data.child("UnitSold").getValue()));
+                                //Formula
+                                int unitSold = Integer.parseInt(data.child("UnitSold").getValue().toString());
+                                int qty = Integer.parseInt(cart.getQty());
+                                unitSold += qty;
+
+                                dbRef.child(data.getKey()).child("UnitSold").setValue(String.valueOf(unitSold));
+                            }
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(CustomerAddToCart.this, String.valueOf(databaseError.getMessage()), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void SendToOrder_Details(String time)
