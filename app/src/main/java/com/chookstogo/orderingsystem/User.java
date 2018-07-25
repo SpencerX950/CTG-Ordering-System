@@ -99,14 +99,22 @@ public class User {
     public HashMap<String, String> getUserMap() {
         HashMap<String,String> UserMap = new HashMap<>();
         UserMap.put("ID",ID);
-        UserMap.put("Fname",Fname);
-        UserMap.put("Lname",Lname);
-        UserMap.put("Mobile",Mobile);
-        UserMap.put("Email",Email);
-        UserMap.put("Username",Username);
-        UserMap.put("Password",Pass);
-        UserMap.put("Type",Type);
+        UserMap.put("Fname",getFname());
+        UserMap.put("Lname",getLname());
+        UserMap.put("Mobile",getMobile());
+        UserMap.put("Email",getEmail());
+        UserMap.put("Username",getUsername());
+        UserMap.put("Password",getPass());
+        UserMap.put("Type",getType());
         return UserMap;
     }
 
+    public HashMap<String,String> getUserOrderMap()
+    {
+        HashMap<String,String> UserMap = new HashMap<>();
+        UserMap.put("ID",ID);
+        UserMap.put("Fname",Fname);
+        UserMap.put("Lname",Lname);
+        return UserMap;
+    }
 }

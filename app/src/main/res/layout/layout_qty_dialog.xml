@@ -5,6 +5,12 @@
     android:padding="10dp"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/lblMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
     <EditText
         android:id="@+id/txtQty"
         android:layout_width="match_parent"

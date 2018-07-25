@@ -126,14 +126,14 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
     private void GoToAdminActivity()
     {
         Intent intent = new Intent(UserLogin.this,AdminPanel.class);
-        intent.putExtra("User Map",user.getUserMap());
+        intent.putExtra("UserMap",user.getUserMap());
         startActivity(intent);
         finish();
     }
     private void GoToCustomerActivity()
     {
         Intent intent = new Intent(UserLogin.this,CustomerPanel.class);
-        intent.putExtra("User Map",user.getUserMap());
+        intent.putExtra("UserMap",user.getUserMap());
         startActivity(intent);
         finish();
     }

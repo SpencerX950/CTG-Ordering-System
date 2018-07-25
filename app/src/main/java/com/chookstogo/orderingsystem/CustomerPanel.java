@@ -13,12 +13,12 @@ import java.util.HashMap;
 public class CustomerPanel extends AppCompatActivity implements View.OnClickListener{
 
     TextView lblWelcomeCustomer;
-
+    HashMap<String,String> UserMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_panel);
-        lblWelcomeCustomer = (TextView) findViewById(R.id.lblWelcomeCustomer);
+        lblWelcomeCustomer = findViewById(R.id.lblWelcomeCustomer);
         findViewById(R.id.btnPurchase).setOnClickListener(this);
         findViewById(R.id.btnCart).setOnClickListener(this);
         findViewById(R.id.btnTransaction).setOnClickListener(this);
@@ -42,9 +42,8 @@ public class CustomerPanel extends AppCompatActivity implements View.OnClickList
 
     private void GoToPurchase()
     {
-        Intent b = getIntent();
         Intent intent = new Intent(CustomerPanel.this,CustomerAddToCart.class);
-        intent.putExtra("User Map",b.getSerializableExtra("User Map"));
+        intent.putExtra("UserMap",UserMap);
         startActivity(intent);
         finish();
     }
@@ -85,7 +84,7 @@ public class CustomerPanel extends AppCompatActivity implements View.OnClickList
     private void setProfile()
     {
         Intent intent = getIntent();
-        HashMap<String,String> UserMap = (HashMap<String,String>) intent.getSerializableExtra("User Map");
+        UserMap = (HashMap<String,String>) intent.getSerializableExtra("UserMap");
         lblWelcomeCustomer.setText("Hello," + String.valueOf(UserMap.get("Username")));
     }
 }
