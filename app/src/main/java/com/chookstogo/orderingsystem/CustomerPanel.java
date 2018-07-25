@@ -52,7 +52,7 @@ public class CustomerPanel extends AppCompatActivity implements View.OnClickList
     {
         Intent b = getIntent();
         Intent intent = new Intent(CustomerPanel.this,CustomerViewCart.class);
-        //intent.putExtra("User Map",b.getSerializableExtra("User Map"));
+        intent.putExtra("User Map",UserMap);
         startActivity(intent);
         finish();
     }
@@ -61,7 +61,7 @@ public class CustomerPanel extends AppCompatActivity implements View.OnClickList
     {
         Intent b = getIntent();
         Intent intent = new Intent(CustomerPanel.this,CustomerOrderHistory.class);
-        //intent.putExtra("User Map",b.getSerializableExtra("User Map"));
+        intent.putExtra("User Map",UserMap);
         startActivity(intent);
         finish();
     }
@@ -71,7 +71,7 @@ public class CustomerPanel extends AppCompatActivity implements View.OnClickList
         Intent b = getIntent();
         Intent intent = new Intent(CustomerPanel.this,CustomerProfile.class);
         Log.d("User Map >>", String.valueOf(b.getSerializableExtra("User Map")));
-        intent.putExtra("User Map",b.getSerializableExtra("User Map"));
+        intent.putExtra("User Map",UserMap);
         startActivity(intent);
         finish();
     }
